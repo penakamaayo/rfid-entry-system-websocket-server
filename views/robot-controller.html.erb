@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>OK</title>
+
+
+
+
+<script type="text/javascript">
+var ws;
+var div_msgs = document.getElementById('msgs');
+     
+function WebSocketTest() {
+  if ("WebSocket" in window)   {
+
+    ws = new WebSocket(get_websocket_url());
+     
+    ws.onopen = function()    {
+     	div_msgs = document.getElementById('msgs');
+    };
+     
+	
+    ws.onmessage = function (evt)    { 
+        var received_msg = evt.data;
+        //alert("Message is received..." + received_msg);
+        div_msgs.innerHTML = received_msg + "<br>" + div_msgs.innerHTML + "<br>";
+
+    };
+     
+     
+    ws.onclose = function()     { 
+    };
+
+  }
+  else  {
+     alert("WebSocket NOT supported by your Browser!");
+  }
+}
+
+function get_websocket_url(host, port) {
+  host = typeof host !== 'undefined' ? host : window.location.hostname;
+  port = typeof port !== 'undefined' ? port : window.location.port ;
+  port = parseInt(port) //+1
+  port = port.toString()
+  alert("ws://" + host + ":" + port);
+  return "ws://" + host + ":" + port ;
+}
+
+
+function left(){
+	ws.send("Going left");
+}
+
+function right(){
+	ws.send("Going right");
+}
+
+function up(){
+	ws.send("Going up");
+}
+
+function down(){
+	ws.send("Going down");
+}
+
+function forward(){
+	ws.send("Going forward");
+}
+
+function reverse(){
+	ws.send("Going reverse");
+}
+
+</script>
+</head>
+
+
+
+<body>
+<center>
+
+<div id="sse">
+   <a href="javascript:WebSocketTest()">Run WebSocket</a>
+</div>
+
+
+
+<h1> Controls </h1>
+<img src="images/arrow-left.png" alt="Left" height="200" width="200" onclick="left()">
+<img src="images/arrow-right.png" alt="Left" height="200" width="200" onclick="right()">
+<img src="images/arrow-up.png" alt="Left" height="200" width="200" onclick="up()">
+<img src="images/arrow-down.png" alt="Left" height="200" width="200" onclick="down()">
+<img src="images/forward.png" alt="Left" height="200" width="500" onclick="forward()"><br>
+<img src="images/reverse.png" alt="Left" height="200" width="500" onclick="reverse()">
+
+<div id="msgs">
+
+</div>
+
+
+</center>
+
+</body>
+</html>

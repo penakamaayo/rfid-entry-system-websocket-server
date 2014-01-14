@@ -7,7 +7,7 @@ require 'erb'
 module ChatDemo
   class ChatBackend
     KEEPALIVE_TIME = 15 # in seconds
-    CHANNEL        = "chat-demo"
+    CHANNEL        = "websocket-demo"
 
     def initialize(app)
       @app     = app

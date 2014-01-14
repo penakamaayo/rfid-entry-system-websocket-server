@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ruby WebSockets Chat Demo</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="assets/css/application.css" rel="stylesheet" media="screen">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <div class="container">
-      <div class="jumbotron">
-        <h1>CoE Project 2k13  --as per yoyo man</h1>
-        <!-- <p>This is a Ruby WebSockets Chat Demo. The code lives <a href="https://github.com/heroku-examples/ruby-websockets-chat-demo">on GitHub</a>. You can find the full guide <a href="https://devcenter.heroku.com/articles/ruby-websockets">on Heroku DevCenter</a>.</p> -->
-        <p>This app serves as the control center for Project2k13. Only authorized robot experts are allowed.</p>
+<head>
+  <title>Ruby WebSockets Chat Demo</title>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="assets/css/application.css" rel="stylesheet" media="screen">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>CoE Project 2k13</h1>
+      <h2>  --as per yoyo man</h2>
+      <p>This app serves as the control center for Project2k13. <p>Only authorized robot experts are allowed.
+    </div>
 
+
+    <div class="jumbotron">
+      <div>
+        <h1> Controls </h1>
+        <img class="img-circle" src="images/arrow-left.png" alt="Left" height="200" width="200" onclick="robot_send('left')">
+        <img  class="img-circle" src="images/arrow-right.png" alt="Left" height="200" width="200" onclick="robot_send('right')">
+        <img  class="img-circle" src="images/arrow-up.png" alt="Left" height="200" width="200" onclick="robot_send('up')">
+        <img  class="img-circle" src="images/arrow-down.png" alt="Left" height="200" width="200" onclick="robot_send('down')">
+        <img  class="img-circle" src="images/forward.png" alt="Left" height="200" width="500" onclick="robot_send('forward')"><br>
+        <img  class="img-circle" src="images/reverse.png" alt="Left" height="200" width="500" onclick="robot_send('reverse')">
       </div>
-      <form id="input-form" class="form-inline">
-        <div class="form-group">
+    </div>
+
+    <div class="jumbotron">
+      <!-- <form id="input-form" class="form-inline"> -->
+      <form id="input-form">
+        <div class="form-group" >
           <input id="input-handle" type="text" class="form-control" placeholder="Expert Group" autofocus />
         </div>
         <div class="form-group">
@@ -30,8 +45,10 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/application.js"></script>
-  </body>
+  </div>
+
+  <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/application.js"></script>
+</body>
 </html>
