@@ -7,4 +7,7 @@ Check out the [live demo](http://ruby-websockets-chat.herokuapp.com/) or [read t
 to run, just do: 
 	bundle exec thin start
 
+   in heroku, for websockets to work, do, before deploy,
+      heroku labs:enable websockets
+
 	
