@@ -10,4 +10,15 @@ to run, just do:
    in heroku, for websockets to work, do, before deploy,
       heroku labs:enable websockets
 
-	
+2014-01-14 : working heroku app
+
+=== shielded-eyrie-7760
+Git URL:       git@heroku.com:shielded-eyrie-7760.git
+Owner Email:   botpena@gmail.com
+Region:        us
+Repo Size:     3M
+Slug Size:     19M
+Stack:         cedar
+Tier:          Legacy
+Web URL:       http://shielded-eyrie-7760.herokuapp.com/
+
