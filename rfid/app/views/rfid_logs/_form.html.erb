@@ -1,0 +1,26 @@
+<%= form_for(@rfid_log) do |f| %>
+  <% if @rfid_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rfid_log.errors.count, "error") %> prohibited this rfid_log from being saved:</h2>
+
+      <ul>
+      <% @rfid_log.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :card_rfid %><br>
+    <%= f.text_field :card_rfid %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.datetime_select :time %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

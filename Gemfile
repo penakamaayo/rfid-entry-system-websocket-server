@@ -9,4 +9,9 @@ gem "sinatra"
 # gem "puma"
 gem "thin"
 
+gem "activerecord"
+
+gem "mysql2"
+
+gem "serialport"
 # gem "redis"

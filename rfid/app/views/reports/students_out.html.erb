@@ -1,0 +1,64 @@
+<center>
+<h1>Students Out</h1>
+<%= link_to '| Home |', 'http://0.0.0.0:3000/' %>
+<%= link_to '| Logs |','http://0.0.0.0:3001/rfid_logs' %>
+<%= link_to '| Records |','http://0.0.0.0:3001/students' %>
+<%= link_to '| New record |', new_student_path %>
+<%= link_to '| Students In |', 'http://0.0.0.0:3001/reports/students_in' %><br><br>
+
+
+
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Status</th>
+
+
+		</tr>
+	</thead>
+
+	<% status = "out"%>
+	<% count = 0 %>
+
+
+
+	<tbody>
+		<% Student.all.each do |student| %>
+		<tr>
+			<% RfidLog.where(card_rfid: student.card_rfid).each do |my_payment| %>
+
+			<% status = my_payment.in_out  %>
+
+			<% end %>
+
+			<% if status == "out" %>
+			<% count += 1 %>
+			<td><%= student.id_number %></td>
+			<td><%= student.full_name %></td>
+			<td><%= status %></td>
+			<% end %>
+
+
+		</tr>
+		<% end %>
+
+		</tbody>
+
+<!-- 	<tfoot>
+		<tr>
+			<td></td>
+			<td>Number of Students inside:</td>
+			<td><b><%= count %></b></td>
+
+
+		</tr>
+	</tfoot> -->
+				<h2>Number of Students outside: <%= count %> </h2>
+
+
+</table>
+
+<br>
+

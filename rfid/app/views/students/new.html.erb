@@ -1,0 +1,11 @@
+<center>
+<h1>New Record</h1>
+<%= link_to '| Home |', 'http://0.0.0.0:3000/' %>
+<%= link_to '| Logs |','http://0.0.0.0:3001/rfid_logs' %>
+<%= link_to '| Records |','http://0.0.0.0:3001/students' %>
+<%= link_to '| New record |', new_student_path %>
+<%= link_to '| Students In |', 'http://0.0.0.0:3001/reports/students_in' %><br><br>
+
+<%= render 'form' %>
+
+<!-- <%= link_to 'Back', students_path %> -->

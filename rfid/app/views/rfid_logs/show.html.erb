@@ -1,0 +1,37 @@
+<style type="text/css">
+	center {
+		padding-top: 100px;
+	}
+</style>
+<center>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID Number:</strong>
+  <%= @rfid_log.id_number %>
+</p>
+
+
+<p>
+  <strong>Full name:</strong>
+  <%= @rfid_log.full_name %>
+</p>
+
+
+<p>
+  <strong>Position:</strong>
+  <%= @rfid_log.classification %>
+</p>
+
+<p>
+  <strong>Card rfid:</strong>
+  <%= @rfid_log.card_rfid %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @rfid_log.time %>
+</p>
+
+<!-- <%= link_to 'Edit', edit_rfid_log_path(@rfid_log) %> | -->
+<%= link_to 'Back', rfid_logs_path %>

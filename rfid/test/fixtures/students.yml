@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  card_rfid: MyString
+  id_number: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  course: MyString
+  year_level: 1
+  contact_number: MyString
+
+two:
+  card_rfid: MyString
+  id_number: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  course: MyString
+  year_level: 1
+  contact_number: MyString

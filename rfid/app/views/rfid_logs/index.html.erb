@@ -1,0 +1,68 @@
+<center>
+<h1>Logs</h1>
+<%= link_to '| Home |', 'http://0.0.0.0:3000/' %>
+<%= link_to '| Logs |','http://0.0.0.0:3001/rfid_logs' %>
+<%= link_to '| Records |','http://0.0.0.0:3001/students' %>
+<%= link_to '| New record |', new_student_path %>
+<%= link_to '| Students In |', 'http://0.0.0.0:3001/reports/students_in' %><br><br>
+
+
+<%= form_tag rfid_logs_path, :method => 'get' do %>
+<div class="form-group pull-right">
+  <%= text_field_tag :search, params[:search], :placeholder=>'Search by Name, ID, Classification' %> 
+</div>
+
+<% end %>
+
+
+<table>
+  <thead>
+    <tr>
+      <!-- <th>Card rfid</th> -->
+      <th>ID number</th>
+      <th>Full Name</th>
+      <th>Classification</th>
+      <th>Course/Profession</th>
+      <th>In/Out</th>
+      <th>Time</th>
+
+
+
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rfid_logs.each do |rfid_log| %>
+    <tr>
+      <% s = Student.where(card_rfid: rfid_log.card_rfid).take %>
+      <!-- <td><%= rfid_log.card_rfid %></td> -->
+      <td><%= rfid_log.id_number %></td>
+      <td><%= rfid_log.full_name %></td>
+      <td><%= rfid_log.classification %></td>
+
+      <td><%= s.course_year %></td>
+      <td><%= rfid_log.in_out.upcase %></td>
+
+      <td><%= rfid_log.time.localtime.strftime("%Y-%m-%d %H:%M:%S") %></td>
+
+
+      <!-- c = RfidLog.where(card_rfid: rfid).count -->
+
+
+
+
+      <td><%= link_to 'Show', rfid_log %></td>
+      <!-- <td><%= link_to 'Edit', edit_rfid_log_path(rfid_log) %></td>
+      <td><%= link_to 'Destroy', rfid_log, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<!-- 
+<%= link_to 'New Rfid log', new_rfid_log_path %>
+ -->

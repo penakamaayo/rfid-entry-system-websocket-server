@@ -4,8 +4,8 @@ require 'thread'
 require 'json'
 require 'erb'
 
-module ChatDemo
-  class ChatBackend
+module RFID
+  class RFIDBackend
     KEEPALIVE_TIME = 15 # in seconds
     CHANNEL        = "websocket-demo"
 
@@ -28,20 +28,23 @@ module ChatDemo
       if Faye::WebSocket.websocket?(env)
         ws = Faye::WebSocket.new(env, nil, {ping: KEEPALIVE_TIME })
         ws.on :open do |event|
+          # p [:open, env, ws.object_id]
           p [:open, ws.object_id]
           @clients << ws
         end
 
         ws.on :message do |event|
           p [:message, event.data]
+          #   
           # @redis.publish(CHANNEL, sanitize(event.data))
 
           # because we are not using redis
+          # @clients.each {|client| client.send(event.data) }
           @clients.each {|client| client.send(event.data) }
         end
 
         ws.on :close do |event|
-          p [:close, ws.object_id, event.code, event.reason]
+          puts [:close, ws.object_id, event.code, event.reason]
           @clients.delete(ws)
           ws = nil
         end

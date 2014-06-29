@@ -1,0 +1,57 @@
+<%= form_for(@student) do |f| %>
+<% if @student.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+  <ul>
+    <% @student.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= f.label :card_rfid %><br>
+  <%= f.text_field :card_rfid %>
+</div>
+<div class="field">
+  <%= f.label :id_number %><br>
+  <%= f.text_field :id_number %>
+</div>
+<div class="field">
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %>
+</div>
+<div class="field">
+  <%= f.label :middle_name %><br>
+  <%= f.text_field :middle_name %>
+</div>
+<div class="field">
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %>
+</div>
+<div class="field">
+  <%= f.label 'classification' %><br>
+  <%= f.text_field :stype %>
+</div>
+
+
+<div class="field">
+  <%= f.label "Course/Position" %><br>
+  <%= f.text_field :course %>
+</div>
+<div class="field">
+  <%= f.label "Year Level(if student)" %><br>
+  <%= f.number_field :year_level %>
+</div>
+<div class="field">
+  <%= f.label :contact_number %><br>
+  <%= f.text_field :contact_number %>
+</div>
+
+
+<div class="actions">
+  <%= f.submit "Submit" %>
+</div>
+<% end %>
