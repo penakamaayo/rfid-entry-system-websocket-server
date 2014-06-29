@@ -173,7 +173,6 @@ String readPage(){
     }
   }
 }
-xxxxxxxx
 void sendData(String  thisData,  String InOut) { 
   if (client.connect(server, 3000)) {
     client.print("GET /verify/in/");
